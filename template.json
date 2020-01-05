@@ -1,0 +1,66 @@
+{
+  "output": {
+    "land_area": {
+     "type": "carousel",
+     "actions": [],
+     "columns": [
+       {
+         "thumbnailImageUrl": "https://c04.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_20998.JPG&w=669",
+         "title": "『トゥモローランド』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "トゥモローランド", "text": "トゥモローランド"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2017/08/33adaf6e2a251af561b5790d2f8c363d.jpg",
+         "title": "『トゥーンタウン』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "トゥーンタウン", "text": "トゥーンタウン"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2016/11/139b9fd460def18f30acb777cb336147.jpg",
+         "title": "『ファンタジーランド』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "ファンタジーランド", "text": "ファンタジーランド"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2016/09/d3d73a4b02da8686efc1938d561151c3.jpg",
+         "title": "『クリッターカントリー』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "クリッターカントリー", "text": "クリッターカントリー"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://media1.tokyodisneyresort.jp/images/adventure/attraction/21_map_name_1.jpg?mod=20181210115908",
+         "title": "『ウエスタンランド』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "ウエスタンランド", "text": "ウエスタンランド"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://dtimes-jp.exactdn.com/wp-content/uploads/2019/03/c92f0ec5ab710748bf51e554d95ab754.jpg",
+         "title": "『アドベンチャーランド』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "アドベンチャーランド", "text": "アドベンチャーランド"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://c03.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_52642.jpg",
+         "title": "『ワールドバザール』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "ワールドバザール", "text": "ワールドバザール"}
+           ]
+       }
+     ]
+    }
+  }
+}

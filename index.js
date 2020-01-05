@@ -23,108 +23,128 @@ const bot = new line.Client(line_config);
 // ----------------------------------------------------
 // ルーター設定
 server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
-// 先行してLINE側にステータスコード200でレスポンスする
-res.sendStatus(200);
+  // 先行してLINE側にステータスコード200でレスポンスする
+  res.sendStatus(200);
 
-// すべてのイベント処理のプロセスを格納する配列
-let events_processed = []
+  Promise.all(req.body.events.map(handleEvent));
+});
+// -----------------------------------------------------
+var template = require( "./template.json" );
 
-// イベントオブジェクトを順次処理
-req.body.events.forEach(async (event) => {
+async function handleEvent(event){
 
-
-// ------------------------------------------------------------
-    async function getWaitingTime(name) {
-      // function
-      // 第1引数：Webページ取得に関するError有無
-      // 第2引数：jQueryっぽいオブジェクト
-      // 第3引数：requestモジュールによるWEBページ取得結果のresponseオブジェクト
-      //        レスポンスヘッダ・ステータスコードを見るときに使用
-      const cheerioObject = await cheerio.fetch('https://tokyodisneyresort.info/smartPhone/realtime.php', {park: name, order: "wait"});
-
-      let lists = cheerioObject.$('div[class="attr_container"]').text();
-      let replyMessage = [];
-
-      // trim: 前後の空白（改行）を削除
-      // / /g : gフラグはすべての文字列変換
-      lists = lists.trim().replace(/\t/g, "").replace(/\n+/g, ",").split(",");
-
-      lists.forEach((list) => {
-        // 存在しない場合：-1
-        if (list.indexOf("更新") !== -1){
-          replyMessage.push(list.trim());
-        // 正規表現で文字列を指定し，チェック
-        // | または
-        }else if (/FP|中|分|情報なし|案内/.test(list)){
-          replyMessage.push(list.trim());
-        } else {
-          replyMessage.push(list.trim());
-          // replyMessage += list;
-        }
-      });
-         return replyMessage;
-    } // function
-
-// -----------------------------------------------------------------------------
   // この処理の対象をイベントタイプがメッセージで，かつ，テキストタイプだった場合に限定
   if (event.type == "message" && event.message.type == "text"){
 
       if (event.message.text.indexOf("Land") !== -1){
-
-        var rep = await getWaitingTime("land");
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: rep[0]
-        }));
-        // 複数リクエストは無理
-        // events_processed.push(bot.replyMessage(event.replyToken, {
-        //   type: "text",
-        //   text: rep[1]
-        // }));
-        // events_processed.push(bot.replyMessage(event.replyToken, {
-        //   type: "text",
-        //   text: rep[2]
-        // }));
-        // events_processed.push(bot.replyMessage(event.replyToken, {
-        //   type: "text",
-        //   text: rep[3]
-        // }));
+        // var rep = await getWaitingTime("land");
+        responsemsg = {
+          type: "template",
+          altText: 'エリアを選んでね',
+          template:template.output.land_area
+        };
 
       } else if (event.message.text.indexOf("Sea") !== -1){
-
-        replyMessage = await getWaitingTime("sea");
+        // await
         var rep = await getWaitingTime("sea");
-        var repp = rep.join('/')
+        var repp = rep.join('\n')
         console.log(repp)
 
-         events_processed.push(bot.replyMessage(event.replyToken, {
+         responsemsg = {
              type: "text",
              text: repp
-          }));
-        //  console.log(rep);
-        // for (var i=0; i<10; i++){
-        //   if ((rep[i] !== null)&&(rep[i] !== undefined)){
-        //   events_processed.push(bot.replyMessage(event.replyToken, {
-        //       type: "text",
-        //       text: rep[i]
-        //     }));
-        //   }
-        // }
+          };
+
+      } else if (event.message.text.indexOf("トゥモローランド") !== -1){
+        var rep = await getAreaWaitingTime("land","area_name","トゥモローランド");
+        var repp = rep.join('\n')
+        console.log(repp)
+
+         responsemsg = {
+             type: "text",
+             text: repp
+          };
+
+
 
       } else {
-        // replyMessage()で返信し、そのプロミスをevents_processedに追加。
-        events_processed.push(bot.replyMessage(event.replyToken, {
+
+        responsemsg = {
             type: "text",
             text: "待ち時間を取得するには，メニューからボタンをお選びください"
-        }));
+        };
       } // else-end
     } // if-end
-  });
 
-  // すべてのイベント処理が終了したら何個のイベントが処理されたか出力。
-    Promise.all(events_processed).then(
-        (response) => {
-            console.log(`${response.length} event(s) processed.`);
-        }
-    );
-});
+  return bot.replyMessage(event.replyToken, responsemsg);
+};
+
+async function getWaitingTime(name) {
+  // function
+  // 第1引数：Webページ取得に関するError有無
+  // 第2引数：jQueryっぽいオブジェクト
+  // 第3引数：requestモジュールによるWEBページ取得結果のresponseオブジェクト
+  //        レスポンスヘッダ・ステータスコードを見るときに使用
+  const cheerioObject = await cheerio.fetch('https://tokyodisneyresort.info/smartPhone/realtime.php', {park: name, order: "wait"});
+
+  let lists = cheerioObject.$('div[class="attr_container"]').text();
+  let replyMessage = [];
+
+  // trim: 前後の空白（改行）を削除
+  // / /g : gフラグはすべての文字列変換
+  lists = lists.trim().replace(/\t/g, "").replace(/\n+/g, ",").split(",");
+
+  lists.forEach((list) => {
+    // 存在しない場合：-1
+    if (list.indexOf("更新") !== -1){
+      replyMessage.push(list.trim());
+    // 正規表現で文字列を指定し，チェック
+    }else if (/FP|中|分|情報なし|案内/.test(list)){
+      replyMessage.push(list.trim());
+    } else {
+      replyMessage.push(list.trim());
+      // replyMessage += list;
+    }
+  });
+     return replyMessage;
+} // function
+
+async function getAreaWaitingTime(name, order, area) {
+  // function
+  // 第1引数：Webページ取得に関するError有無
+  // 第2引数：jQueryっぽいオブジェクト
+  // 第3引数：requestモジュールによるWEBページ取得結果のresponseオブジェクト
+  //        レスポンスヘッダ・ステータスコードを見るときに使用
+  const cheerioObject = await cheerio.fetch('https://tokyodisneyresort.info/smartPhone/realtime.php', {park: name, order: order});
+// <li class="stop-type">トゥモローランド</li>
+// li[class="stop-type"]
+  let lists = cheerioObject.$('li').text();
+  let replyMessage = [];
+
+  // trim: 前後の空白（改行）を削除
+  // / /g : gフラグはすべての文字列変換
+  lists = lists.trim().replace(/\t/g, "").replace(/\n+/g, ",").split(",");
+  let area_is = false;
+  let area_next = false;
+
+  // console.log(lists);
+
+  lists.forEach((list) => {
+    // 存在しない場合：-1
+    if (list.indexOf("トゥモローランド") !== -1){
+      area_is = true;
+    // 正規表現で文字列を指定し，チェック
+    } else if (list.indexOf("トゥーンタウン") !== -1){
+      area_next = true;
+    } else if (area_next){
+      //
+    } else if (area_is){
+      if (list !== ""){
+      replyMessage.push(list.trim());
+    }
+    }else {
+      //
+    }
+  });
+     return replyMessage;
+} // function
