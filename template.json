@@ -1,66 +1,142 @@
 {
-  "output": {
     "land_area": {
      "type": "carousel",
      "actions": [],
      "columns": [
        {
-         "thumbnailImageUrl": "https://c04.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_20998.JPG&w=669",
-         "title": "『トゥモローランド』",
+         "thumbnailImageUrl": "https://media2.tokyodisneyresort.jp/home/tdl/top/mainL_201910_01.jpg",
+         "title": "『人気順』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "トゥモローランド", "text": "トゥモローランド"}
+           {"type": "message", "label": "人気順", "text": "Lrank"}
+           ]
+       },
+       {
+         "thumbnailImageUrl": "https://c04.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_20998.JPG&w=669",
+         "title": "No.0『トゥモローランド』",
+         "text": "ここに　アトラクションor説明　記載",
+         "actions": [
+           {"type": "message", "label": "トゥモローランド", "text": "LNo0"}
            ]
        },
        {
          "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2017/08/33adaf6e2a251af561b5790d2f8c363d.jpg",
-         "title": "『トゥーンタウン』",
+         "title": "No.1『トゥーンタウン』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "トゥーンタウン", "text": "トゥーンタウン"}
+           {"type": "message", "label": "トゥーンタウン", "text": "LNo1"}
            ]
        },
        {
          "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2016/11/139b9fd460def18f30acb777cb336147.jpg",
-         "title": "『ファンタジーランド』",
+         "title": "No.2『ファンタジーランド』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "ファンタジーランド", "text": "ファンタジーランド"}
+           {"type": "message", "label": "ファンタジーランド", "text": "LNo2"}
            ]
        },
        {
          "thumbnailImageUrl": "https://www.tokyodisneyresort.jp/blog/wp-content/uploads/2016/09/d3d73a4b02da8686efc1938d561151c3.jpg",
-         "title": "『クリッターカントリー』",
+         "title": "No.3『クリッターカントリー』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "クリッターカントリー", "text": "クリッターカントリー"}
+           {"type": "message", "label": "クリッターカントリー", "text": "LNo3"}
            ]
        },
        {
          "thumbnailImageUrl": "https://media1.tokyodisneyresort.jp/images/adventure/attraction/21_map_name_1.jpg?mod=20181210115908",
-         "title": "『ウエスタンランド』",
+         "title": "No.4『ウエスタンランド』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "ウエスタンランド", "text": "ウエスタンランド"}
+           {"type": "message", "label": "ウエスタンランド", "text": "LNo4"}
            ]
        },
        {
          "thumbnailImageUrl": "https://dtimes-jp.exactdn.com/wp-content/uploads/2019/03/c92f0ec5ab710748bf51e554d95ab754.jpg",
-         "title": "『アドベンチャーランド』",
+         "title": "No.5『アドベンチャーランド』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "アドベンチャーランド", "text": "アドベンチャーランド"}
+           {"type": "message", "label": "アドベンチャーランド", "text": "LNo5"}
            ]
        },
        {
          "thumbnailImageUrl": "https://c03.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_52642.jpg",
-         "title": "『ワールドバザール』",
+         "title": "No.6『ワールドバザール』",
          "text": "ここに　アトラクションor説明　記載",
          "actions": [
-           {"type": "message", "label": "ワールドバザール", "text": "ワールドバザール"}
+           {"type": "message", "label": "ワールドバザール", "text": "LNo6"}
            ]
        }
      ]
+   },
+   "sea_area": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://media2.tokyodisneyresort.jp/home/tds/top/mainS_201910_01.jpg",
+        "title": "『人気順』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "人気順", "text": "Srank"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://c03.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_5777.jpg",
+        "title": "No.0『ミステリアスアイランド』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "ミステリアスアイランド", "text": "SNo0"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://c05.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_40648.jpg",
+        "title": "No.1『マーメイドラグーン』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "マーメイドラグーン", "text": "SNo1"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://i.pinimg.com/originals/a5/b8/fd/a5b8fde2611d55e67de78b0fbe142e97.jpg",
+        "title": "No.2『アラビアンコースト』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "アラビアンコースト", "text": "SNo2"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://c05.castel.jp/picture?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_40612.jpg",
+        "title": "No.3『ロストリバーデルタ』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "ロストリバーデルタ", "text": "SNo3"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://c03.castel.jp/cover?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_40682.jpg&w=669&h=501",
+        "title": "No.4『ポートディスカバリー』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "ポートディスカバリー", "text": "SNo4"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://live.staticflickr.com/7333/12710747715_979afb23a9_b.jpg",
+        "title": "No.5『アメリカンウォーターフロント』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "アメリカンウォーターフロント", "text": "SNo5"}
+          ]
+      },
+      {
+        "thumbnailImageUrl": "https://c05.castel.jp/cover?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_40672.jpg&w=669&h=501",
+        "title": "No.6『メディテレーニアンハーバー』",
+        "text": "ここに　アトラクションor説明　記載",
+        "actions": [
+          {"type": "message", "label": "メディテレーニアンハーバー", "text": "SNo6"}
+          ]
+      }
+      ]
     }
-  }
 }
